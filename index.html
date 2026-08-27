@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f9f7">
+  <meta name="description" content="Rezervari.ai: programări online pentru afaceri mici. Servicii, calendare și clienți într-un singur loc. Small 50 €/lună. Complete 150 €/lună.">
+  <title>Rezervari.ai</title>
+  <link rel="icon" href="images/icon-only.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/phaser.min.js" defer></script>
+  <script src="script.js" defer></script>
+<meta name="rez-publicare" content="rez-1787847864736-98f48065">
+</head>
+<body>
+  <header class="brand-row wrap">
+    <div class="brand"><img src="images/icon-only.png" width="46" height="46" alt=""><span>Rezervari<span class="red">.ai</span></span></div>
+    <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true"></span><span id="motion-label">Oprește animațiile</span></button>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> PROGRAMĂRI ONLINE. MAI SIMPLU.</p>
+        <h1 id="hero-title">O zi organizată.<br><span class="red">Timp pentru<br>afacerea ta.</span></h1>
+        <p class="hero-intro">Programările și clienții, într-un singur loc.<br>Tu te ocupi de ceea ce faci bine.</p>
+        <a class="button primary" href="#cum-functioneaza">Descoperă cum funcționează <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <p class="hero-note">Pentru afaceri mici. Cu planuri mari.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="hero-ring"></span>
+        <img class="hero-calendar" src="images/calendar.png" width="1024" height="1024" alt="" fetchpriority="high">
+        <img class="hero-clock" src="images/clock.png" width="1024" height="1024" alt="">
+        <span class="art-label"><span class="status-dot"></span> Totul își găsește locul.</span>
+      </div>
+      <div class="hero-bottom"><span>Mai puțină gestiune. Mai multă claritate.</span><span>01 — 03</span></div>
+    </section>
+    <section id="cum-functioneaza" class="story-section" aria-labelledby="story-title">
+      <div class="wrap">
+        <div class="section-heading"><p class="eyebrow">RITMUL AFACERII TALE</p><h2 id="story-title">Trei pași.<br>O zi mai simplă.</h2></div>
+        <div class="story-layout">
+          <div class="scene-sticky">
+            <div id="phaser-stage" aria-hidden="true"><div class="scene-fallback"><img src="images/calendar.png" width="1024" height="1024" alt=""></div></div>
+            <div class="scene-caption"><span id="scene-number">01</span><span id="scene-label">Configurezi serviciile</span><span class="scene-progress" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <p class="complete-note" id="complete-note">Notificările sunt incluse în Complete.</p>
+          </div>
+          <div class="steps">
+            <article class="step" data-step="0"><span class="step-number">01 / CONFIGUREZI</span><h3>Serviciile tale.<br>Programul tău.</h3><p>Configurezi serviciile, durata lor și orele disponibile. Stabilești cadrul în care clienții se pot programa.</p><span class="step-tag">Servicii · Durate · Disponibilitate</span></article>
+            <article class="step" data-step="1"><span class="step-number">02 / PRIMEȘTI REZERVĂRI</span><h3>Clientul alege.<br>Tu vezi rezervarea.</h3><p>Clienții se programează online la serviciile de care au nevoie. Tu gestionezi rezervările din calendar.</p><span class="step-tag">Programări online · Gestionare centralizată</span></article>
+            <article class="step" data-step="2"><span class="step-number">03 / URMĂREȘTI</span><h3>Toată ziua,<br>într-un singur loc.</h3><p>Vizualizezi programările în calendar. Cu Complete, ai și notificări înaintea rezervărilor, rapoarte și acces pentru colegi.</p><span class="step-tag">Un calendar în Small · Cinci în Complete</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="business-section wrap" aria-labelledby="business-title">
+      <div class="section-heading split"><div><p class="eyebrow">PENTRU CEEA CE FACI</p><h2 id="business-title">Afaceri diferite.<br>Aceeași ordine.</h2></div><p>Apasă pe domeniul tău și descoperă un exemplu de utilizare.</p></div>
+      <div class="business-grid">
+        <details><summary><span class="domain-number">01</span><span>Înfrumusețare</span><span class="plus" aria-hidden="true"></span></summary><p>Configurezi servicii de coafură sau manichiură, durata fiecăruia și intervalele disponibile pentru programări.</p></details>
+        <details><summary><span class="domain-number">02</span><span>Cabinete medicale</span><span class="plus" aria-hidden="true"></span></summary><p>Organizezi intervalele pentru consultații și vizualizezi programările în calendar.</p></details>
+        <details><summary><span class="domain-number">03</span><span>Service auto</span><span class="plus" aria-hidden="true"></span></summary><p>Stabilești durata unei revizii și orele disponibile, apoi urmărești rezervările în calendar.</p></details>
+        <details><summary><span class="domain-number">04</span><span>Wellness</span><span class="plus" aria-hidden="true"></span></summary><p>Configurezi ședințe de masaj cu durate diferite și gestionezi programările pentru fiecare serviciu.</p></details>
+        <details><summary><span class="domain-number">05</span><span>Reparații telefoane și laptopuri</span><span class="plus" aria-hidden="true"></span></summary><p>Aloci intervale pentru diagnosticarea dispozitivelor și organizezi vizitele clienților.</p></details>
+        <details><summary><span class="domain-number">06</span><span>Croitorie</span><span class="plus" aria-hidden="true"></span></summary><p>Clienții se pot programa pentru măsurători sau probe, în intervalele stabilite de tine.</p></details>
+        <details><summary><span class="domain-number">07</span><span>Evenimente</span><span class="plus" aria-hidden="true"></span></summary><p>Organizezi întâlnirile de consultanță cu clienții și vizualizezi rezervările într-un singur loc.</p></details>
+        <details><summary><span class="domain-number">08</span><span>Altul</span><span class="plus" aria-hidden="true"></span></summary><p>Dacă afacerea ta lucrează cu programări, poți configura serviciile, durata lor și orele disponibile.</p></details>
+      </div>
+    </section>
+    <section class="pricing-section" id="abonamente" aria-labelledby="pricing-title"><div class="wrap">
+      <div class="section-heading centered"><p class="eyebrow">ALEGE CÂT AI NEVOIE</p><h2 id="pricing-title">Un calendar sau cinci.<br>Tu alegi ritmul.</h2></div>
+      <div class="pricing-grid">
+        <article class="price-card"><div class="plan-top"><h3>Small</h3><span class="plan-tag">1 calendar</span></div><p class="plan-description">Instrumentele de bază pentru programările tale.</p><p class="price"><strong>50<span>€</span></strong><span>/ lună</span></p><div class="rule"></div><ul><li>Acces la un calendar.</li><li>Configurarea serviciilor.</li><li>Duratelor și orelor disponibile.</li><li>Gestionarea rezervărilor și vizualizarea lor în calendar.</li></ul></article>
+        <article class="price-card complete"><div class="plan-top"><h3>Complete</h3><span class="plan-tag">5 calendare</span></div><p class="plan-description">Mai mult spațiu pentru echipă și organizare.</p><p class="price"><strong>150<span>€</span></strong><span>/ lună</span></p><div class="rule"></div><ul><li>Invitarea colegilor prin e-mail, cu acces la calendarele atribuite.</li><li>Configurarea serviciilor, duratelor și orelor disponibile.</li><li>Gestionarea rezervărilor și vizualizarea lor în calendar.</li><li>Rapoarte zilnice, săptămânale și lunare.</li><li>Notificări în aplicație înaintea rezervărilor.</li><li>Acces la 5 calendare.</li></ul><span class="complete-accent" aria-hidden="true"></span></article>
+      </div>
+    </div></section>
+    <section class="about-section wrap" aria-labelledby="about-title"><p class="eyebrow" id="about-title">DESPRE REZERVARI.AI</p><p class="source-description">Rezervari.ai este o platformă de programări online pentru afaceri mici care ajută la gestionarea simplă și eficientă a programărilor într-un singur loc, în timp ce clienții se pot programa rapid și ușor. Permitem micro-întreprinderilor să renunțe la propria gestiune privind programările. Afaceri precum: saloane de înfrumusețare, cabinete medicale, service auto, wellness, service telefoane, laptop-uri; servicii de croitorie, firmă de evenimente etc.</p></section>
+    <section class="download-section wrap" aria-labelledby="download-title"><img class="download-logo" src="images/icon-only.png" width="76" height="76" alt="Logo Rezervari.ai"><h2 id="download-title">Următoarea zi.<br><span class="red">Mai bine organizată.</span></h2><div class="play-store"><a class="play-icon" id="google-play" href="https://play.google.com/store/" target="_blank" rel="noopener noreferrer" aria-label="Deschide pagina principală Google Play"><svg viewBox="0 0 48 52" aria-hidden="true"><path fill="#00c2f3" d="M2 3 26 26 2 49Z"/><path fill="#00d17d" d="M2 3Q4 1 7 3L35 20 26 26Z"/><path fill="#ffce45" d="m26 26 9-6 10 6q3 2 0 4l-10 6Z"/><path fill="#ff496c" d="m2 49 24-23 9 10L7 49q-3 2-5 0Z"/></svg></a><span>Available on Google Play</span></div></section>
+  </main>
+  <footer class="wrap footer"><span>Rezervari.ai</span><span>Programările tale, într-un singur loc.</span></footer>
+</body>
+</html>
