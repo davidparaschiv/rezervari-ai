@@ -1,0 +1,32 @@
+[
+  {
+    "type": "text",
+    "topic": "descrierea aplicației",
+    "text": "Rezervari.ai o platformă de programări online pentru afaceri mici, care le permite să își gestioneze într-un singur loc programările și clienții, iar clienților să se programeze rapid la serviciile de care au nevoie. Este o aplicație care permite micro-întreprinderilor să renunțe la proria gestiune privind programările. Afaceri precum: saloane de înfrumusețare, cabinete medicale, service auto, wellness, service telefoane, laptop-uri; servicii de croitorie, firmă de evenimente etc. "
+  },
+  {
+    "type": "image",
+    "name": "icon-only.png",
+    "topic": "logo"
+  },
+  {
+    "type": "text",
+    "topic": "servicii oferite",
+    "text": "Small: 50 euro pe luna : \n-Acces la un calendar.\n-Configurarea serviciilor.\n-Duratelor și orelor disponibile.\n-Gestionarea rezervărilor și vizualizarea lor în calendar.\nComplete: 150 euro pe luna\n-Invitarea colegilor prin e-mail, cu acces la calendarele atribuite.\n-Configurarea serviciilor, duratelor și orelor disponibile.\n-Gestionarea rezervărilor și vizualizarea lor în calendar.\n-Rapoarte zilnice, săptămânale și lunare.\n-Notificări în aplicație înaintea rezervărilor.\n-Acces la 5 calendare."
+  },
+  {
+    "type": "chatgpt helper information",
+    "topic": "metadata",
+    "text": "this app should be a SPA \nsingle page application with no navigation bar"
+  },
+  {
+    "type": "chatgpt helper information",
+    "topic": "metadata",
+    "text": "the style of the app should be minimal and match the same style you used for A&D Agency app previously developed"
+  },
+  {
+    "type": "chatgpt helper information",
+    "topic": "metadata",
+    "text": "google play link with google play icon should be present of the bottom of the page with the text \"available on Google Play\" the icon should be clickable not the text "
+  }
+]

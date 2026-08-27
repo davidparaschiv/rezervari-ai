@@ -1,0 +1,10 @@
+{
+  "name": "rezervari-ai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "displayName": "Rezervari.ai"
+}
