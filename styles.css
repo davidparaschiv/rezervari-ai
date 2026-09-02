@@ -6,4 +6,6 @@
 @media(max-width:360px){.wrap{width:calc(100% - 32px)}h1{font-size:42px;letter-spacing:-2.5px}.brand{font-size:20px}.motion-toggle{font-size:9px}.brand-row{gap:8px}.hero-intro{font-size:14px}.price-card{padding:24px}.scene-sticky:before{inset:0 -16px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.scene-sticky{position:relative}.step{min-height:0;padding-block:35px}}
 
+.price-card{display:flex;flex-direction:column}.plan-download{display:block;align-self:center;margin-top:auto;padding:14px 24px;border-radius:6px;background:var(--red);color:#fff;font-size:14px;font-weight:700;text-align:center;text-decoration:none;transition:background .2s}.plan-download:hover{background:#cd1930}
+
 [hidden]{display:none!important}

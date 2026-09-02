@@ -35,7 +35,7 @@ Scriptul cere un repository GitHub existent și confirmarea publicării. Ai nevo
 
 ## Conținut și accesibilitate
 
-Fișierul `content.json` este originalul nemodificat. Descrierea și funcțiile abonamentelor sunt păstrate. Textele de prezentare și exemplele sunt redactate pe baza sursei. Small: 50 €/lună și un calendar. Complete: 150 €/lună și cinci calendare, colegi, rapoarte și notificări. Nu sunt incluse capturi inventate ale aplicației.
+Descrierea și funcțiile abonamentelor sunt păstrate. Textele de prezentare și exemplele sunt redactate pe baza sursei. Small: 50 €/lună și un calendar. Complete: 150 €/lună și zece calendare, colegi, rapoarte și notificări. Nu sunt incluse capturi inventate ale aplicației.
 
 Animațiile se pot opri și respectă preferința de reducere a mișcării. Conținutul și cardurile funcționează fără Phaser. Obiectele 3D sunt decorative. Randarea canvas se adaptează densității ecranului, până la 3×. Imaginile originale au 1254 × 1254 px.
 
