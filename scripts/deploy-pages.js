@@ -31,7 +31,7 @@ try{
   if(!['da','d','yes','y'].includes(confirmation)){console.log('Publicare anulată.');process.exitCode=0;}
   else {
     // Explicit allowlist only: no server, source JSON, credentials or print poster.
-    const files=['index.html','styles.css','script.js','images','vendor','terms-of-service.html','privacy-policy.html'];
+    const files=['index.html','styles.css','script.js','images','vendor','terms.html','privacy-policy.html',"delete-account-info.html"];
     for(const name of files)await readdir(path.dirname(path.join(root,name)));
     const name=getConfig('user.name')||await ask('Numele tău pentru commit: ');
     const email=getConfig('user.email')||await ask('Adresa de e-mail pentru commit: ');
@@ -50,7 +50,7 @@ try{
     await writeFile(path.join(temporary,'index.html'),index.replace('</head>','<meta name="rez-publicare" content="'+marker+'">\n</head>'));
     git(['config','user.name',name],temporary);git(['config','user.email',email],temporary);
     git(['add','--all'],temporary);git(['commit','-m','Publicare Rezervari.ai'],temporary,true);
-    git(['push','origin','HEAD:refs/heads/gh-pages'],temporary,true);
+    git(['push','--force','origin','HEAD:refs/heads/gh-pages'],temporary,true);
     await writeFile(config,JSON.stringify({repository:url},null,2)+'\n');
     let pageURL='https://'+owner+'.github.io/'+(repository.toLowerCase()===owner.toLowerCase()+'.github.io'?'':repository+'/');
     try{const custom=(await readFile(path.join(temporary,'CNAME'),'utf8')).trim();if(/^[a-z0-9.-]+$/i.test(custom))pageURL='https://'+custom+'/';}catch{}
