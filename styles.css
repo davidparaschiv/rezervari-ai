@@ -8,4 +8,6 @@
 
 .price-card{display:flex;flex-direction:column}.plan-download{display:block;align-self:center;margin-top:auto;padding:14px 24px;border-radius:6px;background:var(--red);color:#fff;font-size:14px;font-weight:700;text-align:center;text-decoration:none;transition:background .2s}.plan-download:hover{background:#cd1930}
 
+.store-options{display:flex;justify-content:center;align-items:flex-start;gap:28px}.play-icon .apple-mark{width:35px;height:39px;fill:var(--ink)}
+
 [hidden]{display:none!important}
