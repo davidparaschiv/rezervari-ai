@@ -12,7 +12,8 @@ const strictPort=cli.includes('--strictPort');
 const qaEnabled=strictPort&&option('--port')==='4173';
 const ready=process.env.REZ_READY_FILE;
 const token=process.env.REZ_LAUNCH_TOKEN;
-const allowed=new Set(['index.html','styles.css','script.js','content.json']);
+const associations=new Set(['.well-known/assetlinks.json','.well-known/apple-app-site-association']);
+const allowed=new Set(['programare/index.html','index.html','styles.css','script.js','content.json']);
 const legalRoutes=new Map([['/terms-of-service','terms-of-service.html'],['/privacy-policy','privacy-policy.html']]);
 const server=http.createServer(async(req,res)=>{
   try {
@@ -21,12 +22,12 @@ const server=http.createServer(async(req,res)=>{
     if(token && requested==='/_ready/'+token){res.writeHead(200,{'content-type':'application/json','cache-control':'no-store'});res.end(JSON.stringify({token}));return;}
     const decoded=decodeURIComponent(requested);
     const legalPage=legalRoutes.get(decoded);
-    const relative=legalPage||(decoded==='/'?'index.html':decoded.slice(1));
-    if(relative.includes('\\') || relative.split('/').some(p=>p==='..'||p.startsWith('.')) || (!legalPage&&!allowed.has(relative)&&!relative.startsWith('images/')&&!relative.startsWith('vendor/')&&!(qaEnabled&&relative.startsWith('tests/')))){res.writeHead(404);res.end('Pagina nu a fost găsită.');return;}
+    const relative=legalPage||(decoded==='/'?'index.html':decoded==='/programare/'?'programare/index.html':decoded.slice(1));
+    if(relative.includes('\\') || relative.split('/').some(p=>p==='..'||(p.startsWith('.')&&!associations.has(relative))) || (!legalPage&&!associations.has(relative)&&!allowed.has(relative)&&!relative.startsWith('images/')&&!relative.startsWith('vendor/')&&!(qaEnabled&&relative.startsWith('tests/')))){res.writeHead(404);res.end('Pagina nu a fost găsită.');return;}
     const filename=await realpath(path.join(root,relative));
     if(!filename.startsWith(root+path.sep) || !(await stat(filename)).isFile()){res.writeHead(404);res.end();return;}
     const bytes=await readFile(filename);
-    res.writeHead(200,{'content-type':types[path.extname(filename)]||'application/octet-stream','content-length':bytes.length,'cache-control':'no-store','x-content-type-options':'nosniff'});
+    res.writeHead(200,{'content-type':(associations.has(relative)?'application/json; charset=utf-8':types[path.extname(filename)])||'application/octet-stream','content-length':bytes.length,'cache-control':'no-store','x-content-type-options':'nosniff'});
     res.end(req.method==='HEAD'?undefined:bytes);
   }catch(err){res.writeHead(err instanceof URIError?400:404);res.end('Resursa nu este disponibilă.');}
 });

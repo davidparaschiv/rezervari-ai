@@ -42,3 +42,15 @@ Animațiile se pot opri și respectă preferința de reducere a mișcării. Con�
 Verificat în browser prin cadre responsive de 320, 390, 414, 768 și 1280 px; verificarea nu echivalează cu un test pe telefon fizic. Git Bash pe Windows nu a fost executat în acest mediu; testele locale rulează pe Linux/Bash.
 
 `worker/`, `.openai/` și adaptorul de împachetare sunt necesare doar găzduirii private și nu sunt incluse în arhiva locală. Codul static rămâne editabil direct.
+
+
+## Linkuri de programare în aplicație
+
+Linkul public este `https://rezervari-ai.com/programare/?firma=<UUID>&nume=<nume-codificat>`.
+Directorul `programare` conține doar pagina de rezervă pentru browsere; programarea se face în aplicația Capacitor.
+
+Publicarea trebuie să includă directorul `.well-known`. Fișierele `assetlinks.json` (Android) și `apple-app-site-association` (iOS) trebuie să fie accesibile public prin HTTPS, fără redirecționare sau autentificare, cu tipul `application/json`.
+Pentru Android, `sha256_cert_fingerprints` trebuie să conțină amprentele certificatelor **App signing key** din Play Console, nu certificatul de upload.
+Pentru iOS, identificatorul configurat este `L6L8M8P356.ro.rezerva.app`, conform proiectului Xcode; noul build trebuie semnat cu suportul Associated Domains activ.
+
+Publică fișierele și instalează noua versiune a aplicației înainte de verificarea pe telefon. Verifică un client autentificat, un client care se autentifică după scanare și un cont business. Linkul folosește aceeași adresă HTTPS pe ambele platforme.
