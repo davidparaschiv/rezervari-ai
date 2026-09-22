@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ro.rezerva.app",
+      "sha256_cert_fingerprints": [
+        "56:5F:8E:69:BB:19:32:35:9A:CC:10:68:40:86:F2:26:25:2F:3F:27:B4:70:D7:65:14:76:F8:EE:55:28:B0:CA"
+      ]
+    }
+  }
+]
