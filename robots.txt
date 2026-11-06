@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rezervari-ai.com/sitemap.xml
