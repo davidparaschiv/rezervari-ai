@@ -31,7 +31,7 @@ try{
   if(!['da','d','yes','y'].includes(confirmation)){console.log('Publicare anulată.');process.exitCode=0;}
   else {
     // Explicit allowlist only: no server, source JSON, credentials or print poster.
-    const files=['.well-known','programare','index.html','styles.css','script.js','images','vendor','terms.html','privacy-policy.html',"delete-account-info.html"];
+    const files=['robots.txt','sitemap.xml','.well-known','programare','index.html','styles.css','script.js','images','vendor','terms.html','privacy-policy.html',"delete-account-info.html"];
     for(const name of files)await readdir(path.dirname(path.join(root,name)));
     const name=getConfig('user.name')||await ask('Numele tău pentru commit: ');
     const email=getConfig('user.email')||await ask('Adresa de e-mail pentru commit: ');
@@ -61,7 +61,26 @@ try{
       try{const response=await fetch(pageURL+'?verificare='+marker,{signal:AbortSignal.timeout(4000),cache:'no-store'});if(response.ok&&(await response.text()).includes(marker)){verified=true;break;}}catch{}
       await new Promise(resolve=>setTimeout(resolve,4000));
     }
-    if(verified)console.log('Publicare verificată: '+pageURL);
+    if(verified){
+      console.log('Publicare verificată: '+pageURL);
+      const sitemap=await readFile(path.join(root,'sitemap.xml'),'utf8');
+      const locations=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]);
+      if(!locations.length||locations.some(location=>!location.startsWith(pageURL)))throw Error('Domeniul public nu corespunde sitemap-ului.');
+      for(const [resource,type] of [['robots.txt','text/plain'],['sitemap.xml','application/xml'],...locations.map(location=>[location.slice(pageURL.length),'text/html'])]){
+        const liveURL=new URL(resource,pageURL);
+        for(const method of ['GET','HEAD']){
+          const response=await fetch(liveURL,{method,signal:AbortSignal.timeout(10000),cache:'no-store'});
+          if(response.status!==200||response.headers.get('content-type')?.split(';')[0]!==type)throw Error(method+' '+liveURL+': status sau Content-Type incorect.');
+          if(method==='GET'){
+            const body=await response.text();
+            if(type==='text/html'&&!body.includes('rel="canonical" href="'+liveURL.href+'"'))throw Error('Canonical incorect: '+liveURL);
+            if(resource==='robots.txt'&&body!==await readFile(path.join(root,resource),'utf8'))throw Error('robots.txt live diferă de versiunea locală.');
+            if(resource==='sitemap.xml'&&body!==sitemap)throw Error('sitemap.xml live diferă de versiunea locală.');
+          }
+        }
+      }
+      console.log('Indexare verificată live: robots.txt, sitemap.xml, adrese canonice, GET și HEAD.');
+    }
     else console.log('Fișiere trimise, dar publicarea nu este încă verificată. Verifică setările Pages și starea publicării în GitHub. Adresă estimată: '+pageURL);
   }
 }catch(error){console.error('\nPublicarea s-a oprit: '+(error.stderr?.toString().trim()||error.message));console.error('Verifică adresa repository-ului, accesul GitHub și configurarea Pages. Nu s-a folosit force-push și proiectul local nu a fost modificat.');process.exitCode=1;}

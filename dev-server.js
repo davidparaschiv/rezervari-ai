@@ -13,8 +13,9 @@ const qaEnabled=strictPort&&option('--port')==='4173';
 const ready=process.env.REZ_READY_FILE;
 const token=process.env.REZ_LAUNCH_TOKEN;
 const associations=new Set(['.well-known/assetlinks.json','.well-known/apple-app-site-association']);
-const allowed=new Set(['programare/index.html','index.html','styles.css','script.js','content.json']);
-const legalRoutes=new Map([['/terms-of-service','terms-of-service.html'],['/privacy-policy','privacy-policy.html']]);
+types['.xml']='application/xml; charset=utf-8';
+const allowed=new Set(['robots.txt','sitemap.xml','terms.html','privacy-policy.html','delete-account-info.html','programare/index.html','index.html','styles.css','script.js','content.json']);
+const legalRoutes=new Map([['/terms-of-service','terms.html'],['/privacy-policy','privacy-policy.html']]);
 const server=http.createServer(async(req,res)=>{
   try {
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405,{'Allow':'GET, HEAD'});res.end();return;}
